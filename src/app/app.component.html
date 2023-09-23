@@ -1,0 +1,29 @@
+<div class="top-menu">
+
+    <img class="logo"
+         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+
+</div>
+
+<div class="salmon-theme">
+<div class="course-card">test</div>
+</div>
+<div class="courses salmon-theme" *ngIf="courses[0] as course">
+    
+    <course-card highlighted  #highlight="hl" (toggleHighlight)="onhighlightselected($event)"
+            (courseSelected)="onCourseSelected($event)"
+                 [course]="course">
+
+        <course-image [src]="course.iconUrl" *ngxUnless="!course.iconUrl"
+        (dblclick)="highlight.toggle()"></course-image>
+
+        <div class="course-description">
+            {{ course.longDescription }}
+        </div>
+
+    </course-card>
+
+
+</div>
+
+
